@@ -15,5 +15,11 @@ class Grille:
             #ligne=Grille.nbLignes-1-i
             #print(f"ligne = {ligne}")
             for colonne in range (Grille.nbColonnes):
-                print(self.tab[ligne][colonne], end=' ')
+                contenuDeLaCase=self.tab[ligne][colonne]
+                if contenuDeLaCase != None:
+                    joueurDeLaCase=contenuDeLaCase
+                    valeur=joueurDeLaCase.numero
+                else:
+                    valeur=0
+                print(valeur, end=' ')
             print('')
