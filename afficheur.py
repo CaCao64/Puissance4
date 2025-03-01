@@ -1,5 +1,5 @@
 import pygame 
-
+from grille import Grille
 
 class Afficheur:
     largeurColonne=155
@@ -9,7 +9,8 @@ class Afficheur:
         pygame.init()
         pygame.display.set_caption("Puissance 4")
         self.ecran=pygame.display.set_mode((1920, 1080))
-        self.fond=pygame.image.load(r'.\Images\Plaque.png')
+        self.plaque=pygame.image.load(r'.\Images\Plaque.png')
+        self.jeton=pygame.image.load(r'.\Images\JetonRouge.png')
         self.gameManager=gameManager
     
     def affiche(self):
@@ -24,7 +25,16 @@ class Afficheur:
                     self.onClick()
 
     def afficheGrille(self):
-        self.ecran.blit(self.fond,(0,0))
+        self.ecran.blit(self.plaque,(0,0))
+        # self.ecran.blit(self.jeton,(15,33)) #en haut à gauche
+        # self.ecran.blit(self.jeton,(15,791)) #en bas à gauche
+        # self.ecran.blit(self.jeton,(938,791)) #en bas à droite
+
+        # g=self.gameManager.grille
+        # for ligne in range(Grille.nbLignes-1,-1,-1):
+        #     for colonne in range (Grille.nbColonnes):
+        #          print(g.tab[ligne][colonne], end=' ')
+
 
     def onClick(self):
         position = pygame.mouse.get_pos()
